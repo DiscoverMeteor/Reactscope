@@ -26,3 +26,5 @@ accounts-password
 
 sanjo:jasmine
 velocity:console-reporter
+
+twbs:bootstrap

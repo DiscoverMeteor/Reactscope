@@ -1,4 +1,5 @@
 import Tasks from 'TodoApp/collections/Tasks';
+import Posts from 'TodoApp/collections/Posts';
 
 Meteor.methods({
   addTask: function (text) {

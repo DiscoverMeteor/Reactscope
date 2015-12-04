@@ -1,0 +1,9 @@
+/Users/sacha/Dev/kickstart-hugeapp
+|-- README.md
+|-- entry
+|-- main.html
+|-- modules
+|-- tests
+`-- webpack.packages.json
+
+directory: 3 file: 3 symboliclink: 1 

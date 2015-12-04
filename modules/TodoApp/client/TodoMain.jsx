@@ -6,6 +6,8 @@ import TodoHeader from './components/TodoHeader';
 import TodoList from './components/TodoList';
 
 import Tasks from 'TodoApp/collections/Tasks';
+import Posts from 'TodoApp/collections/Posts';
+
 import style from './css/TodoApp.import.css'
 
 @ReactMixin.decorate(ReactMeteorData)

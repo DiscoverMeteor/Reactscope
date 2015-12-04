@@ -44,7 +44,7 @@ export default class TodoHeader extends Component {
 
         <label className={style.hideCompleted}>
           <input type="checkbox" checked={this.props.hideCompleted} onChange={this.props.toggleHideCompleted} />
-          Hide Completed Tasks
+          Hide Completed Things
         </label>
 
         <LoginButtons />
