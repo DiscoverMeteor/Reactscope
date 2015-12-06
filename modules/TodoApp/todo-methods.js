@@ -83,6 +83,10 @@ Meteor.methods({
     };
   },
   
+  postEdit: function (postAttributes) {
+    Posts.update({_id: postAttributes._id}, postAttributes);
+  },
+
   upvote: function(postId) {
     check(this.userId, String);
     check(postId, String);
