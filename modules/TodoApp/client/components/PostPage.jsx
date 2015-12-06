@@ -9,7 +9,6 @@ import PostItem from './PostItem';
 export default class PostPage extends Component {
 
   getMeteorData() {
-    console.log(this)
 
     Meteor.subscribe('singlePost', this.props.params.postId);
     const post = Posts.findOne({_id: this.props.params.postId});
@@ -17,6 +16,7 @@ export default class PostPage extends Component {
       post,
       user: Meteor.user()
     };
+
   }
 
   render () {

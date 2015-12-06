@@ -9,9 +9,11 @@ export default class TodoApp extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Header/>
-        {this.props.children}
+        <div id="main">
+          {this.props.children}
+        </div>
       </div>
     );
   }

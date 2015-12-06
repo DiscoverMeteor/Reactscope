@@ -30,7 +30,7 @@ export default class PostList extends Component {
 
       <div className="posts page">
         <div className="wrapper">
-        {this.data.posts.map(post => <PostItem key={post._id} _id={post._id} title={post.title} url={post.url} />)}
+          {this.data.posts.map(post => <PostItem key={post._id} _id={post._id} title={post.title} url={post.url} />)}
         </div>
       </div>
     );

@@ -13,7 +13,7 @@ export default class Header extends Component {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Nanoscope</a>
+          <Link to="/" className="navbar-brand" >Nanoscope</Link>
         </div>
         <div className="collapse navbar-collapse" id="navigation">
           <ul className="nav navbar-nav">
