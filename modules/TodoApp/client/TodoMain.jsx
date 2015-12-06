@@ -9,6 +9,7 @@ import Tasks from 'TodoApp/collections/Tasks';
 import Posts from 'TodoApp/collections/Posts';
 
 import style from './css/TodoApp.import.css'
+import style2 from './css/Microscope.import.css'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class TodoMain extends Component {

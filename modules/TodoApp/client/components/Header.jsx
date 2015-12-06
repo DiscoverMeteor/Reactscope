@@ -21,6 +21,7 @@ export default class Header extends Component {
               <Link to="/">Home</Link>
               <Link to="/submit">Submit</Link>
               <Link to="/about">About</Link>
+              <Link to="/admin">Admin</Link>
             </li>
           </ul>
         </div>
