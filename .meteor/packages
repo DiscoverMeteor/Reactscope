@@ -23,8 +23,12 @@ thereactivestack:blazetoreact
 accounts-ui
 accounts-password
 
-
 sanjo:jasmine
 velocity:console-reporter
 
 twbs:bootstrap
+
+aldeed:simple-schema
+aldeed:collection2
+
+mdg:method

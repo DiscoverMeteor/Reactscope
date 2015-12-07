@@ -3,9 +3,9 @@ import Posts from './../../collections/Posts';
 
 import ReactMixin from 'react-mixin';
 
-// import { createHistory } from 'history'
-// let history = createHistory();
+import { History } from 'react-router';
 
+@ReactMixin.decorate(History)
 export default class PostSubmit extends Component {
 
   submitPost(event) {
@@ -20,9 +20,10 @@ export default class PostSubmit extends Component {
       title : this.refs.title.value
     }
 
-    Meteor.call('postInsert', post);
-
-    // history.pushState(null, '/');
+    // Meteor.call('postInsert', post);
+    Posts.methods.insert.call(post);
+    
+    this.history.pushState(null, '/');
 
   }
 

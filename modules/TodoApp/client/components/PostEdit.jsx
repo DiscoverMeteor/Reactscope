@@ -1,11 +1,15 @@
 import { Component, PropTypes } from 'react';
 import ReactMixin from 'react-mixin';
 
+import { History } from 'react-router';
+
 import Posts from './../../collections/Posts';
 
 import PostItem from './PostItem';
 
+
 @ReactMixin.decorate(ReactMeteorData)
+@ReactMixin.decorate(History)
 export default class PostPage extends Component {
 
   getMeteorData() {
@@ -24,8 +28,6 @@ export default class PostPage extends Component {
     // 1. Stop the form from submitting
     event.preventDefault();
 
-    console.log(this)
-
     // 2. Take the data from the form and create an object
     const post = {
       _id: this.data.post._id,
@@ -35,7 +37,7 @@ export default class PostPage extends Component {
 
     Meteor.call('postEdit', post);
 
-    // history.pushState(null, '/');
+    this.history.pushState(null, '/');
 
   }
 

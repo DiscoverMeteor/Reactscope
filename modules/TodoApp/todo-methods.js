@@ -70,10 +70,10 @@ Meteor.methods({
     var post = _.extend(postAttributes, {
       // userId: user._id, 
       // author: user.username, 
-      createdAt: new Date(),
-      commentsCount: 0,
-      upvoters: [], 
-      votes: 0
+      createdAt: new Date()
+      // commentsCount: 0,
+      // upvoters: [], 
+      // votes: 0
     });
     
     var postId = Posts.insert(post);
@@ -84,7 +84,7 @@ Meteor.methods({
   },
   
   postEdit: function (postAttributes) {
-    Posts.update({_id: postAttributes._id}, postAttributes);
+    Posts.update({_id: postAttributes._id}, {$set: {title: postAttributes.title, url: postAttributes.url}});
   },
 
   upvote: function(postId) {
