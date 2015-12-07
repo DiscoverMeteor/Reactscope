@@ -46,34 +46,26 @@ Meteor.methods({
 });
 
 
-Meteor.methods({
-  postInsert: function(postAttributes) {
-    // check(this.userId, String);
-    // check(postAttributes, {
-    //   title: String,
-    //   url: String
-    // });
-    
-    // var errors = validatePost(postAttributes);
-    // if (errors.title || errors.url)
-    //   throw new Meteor.Error('invalid-post', "You must set a title and URL for your post");
-    
-    // var postWithSameLink = Posts.findOne({url: postAttributes.url});
-    // if (postWithSameLink) {
-    //   return {
-    //     postExists: true,
-    //     _id: postWithSameLink._id
-    //   }
-    // }
-    
-    // var user = Meteor.user();
+Posts.methods = {};
+
+// Attach your method to a namespace
+Posts.methods.insert = new Method({
+  // The name of the method, sent over the wire. Same as the key provided
+  // when calling Meteor.methods
+  name: 'Posts.methods.insert',
+
+  // Validation function for the arguments. Only keyword arguments are accepted,
+  // so the arguments are an object rather than an array. The SimpleSchema validator
+  // throws a ValidationError from the mdg:validation-error package if the args don't
+  // match the schema
+  validate: Posts.schema.validator(),
+
+  // This is the body of the method. Use ES2015 object destructuring to get
+  // the keyword arguments
+  run(postAttributes) {
+ 
     var post = _.extend(postAttributes, {
-      // userId: user._id, 
-      // author: user.username, 
       createdAt: new Date()
-      // commentsCount: 0,
-      // upvoters: [], 
-      // votes: 0
     });
     
     var postId = Posts.insert(post);
@@ -81,25 +73,26 @@ Meteor.methods({
     return {
       _id: postId
     };
-  },
-  
-  postEdit: function (postAttributes) {
-    Posts.update({_id: postAttributes._id}, {$set: {title: postAttributes.title, url: postAttributes.url}});
-  },
 
-  upvote: function(postId) {
-    check(this.userId, String);
-    check(postId, String);
-    
-    var affected = Posts.update({
-      _id: postId, 
-      upvoters: {$ne: this.userId}
-    }, {
-      $addToSet: {upvoters: this.userId},
-      $inc: {votes: 1}
-    });
-    
-    if (! affected)
-      throw new Meteor.Error('invalid', "You weren't able to upvote that post");
+  }
+});
+
+Posts.methods.update = new Method({
+  // The name of the method, sent over the wire. Same as the key provided
+  // when calling Meteor.methods
+  name: 'Posts.methods.update',
+
+  // Validation function for the arguments. Only keyword arguments are accepted,
+  // so the arguments are an object rather than an array. The SimpleSchema validator
+  // throws a ValidationError from the mdg:validation-error package if the args don't
+  // match the schema
+  validate: Posts.schema.validator(),
+
+  // This is the body of the method. Use ES2015 object destructuring to get
+  // the keyword arguments
+  run(postAttributes) {
+ 
+    Posts.update({_id: postAttributes._id}, {$set: {title: postAttributes.title, url: postAttributes.url}});
+
   }
 });

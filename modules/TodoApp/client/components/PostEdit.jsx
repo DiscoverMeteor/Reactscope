@@ -35,8 +35,9 @@ export default class PostPage extends Component {
       title : this.refs.title.value
     }
 
-    Meteor.call('postEdit', post);
-
+    // Meteor.call('postEdit', post);
+    Posts.methods.update.call(post);
+    
     this.history.pushState(null, '/');
 
   }
